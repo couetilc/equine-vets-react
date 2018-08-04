@@ -1,0 +1,131 @@
+$color-dark-grey: #222222;
+$color-light-grey: #a9a9a9;
+$width-page: 1024px;
+$height-header: 100px;
+$height-menu-bar: 40px;
+$height-banner: 500px;
+
+#app {
+    background: linear-gradient(darkblue, royalblue);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#site-page {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    max-width: $width-page;
+    box-shadow: 0 0 20px 2px $color-dark-grey;
+}
+
+#top-bar {
+    height: 5px;
+    width: 100%;
+    background-color: blue;
+}
+
+#site-header {
+    height: $height-header;
+    width: 100%;
+    background-color: $color-dark-grey;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    .header-logo {
+    }
+}
+
+#menu-bar {
+    height: $height-menu-bar;
+    width: 100%;
+    background-color: $color-light-grey;
+
+    a {
+        text-decoration: none;
+        color: white;
+        transition: border-bottom .2s;
+    }
+    a:hover {
+        border-bottom: 2px solid white;
+    }
+    ul {
+        height: inherit;
+        width: inherit;
+        margin: 0em;
+        padding: 0em;
+        list-style-type: none;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    li {
+        padding: 0em;
+        margin: 0em 1em;
+    }
+}
+
+#main-banner {
+    position: relative;
+    width: inherit;
+    height: $height-banner;
+
+    .banner-image {
+        position: absolute;
+        width: $width-page;
+    }
+    #banner-textbox {
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        height: $height-banner;
+    }
+    #banner-message {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        width: 25em;
+
+        #message-title {
+            margin: 50px 0 1em 0;
+        }
+        h1 {
+            margin: 0em;
+            padding: 0em;
+            color: white;
+            font-family: Verdana, sans-serif;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px black;
+        }
+        #title-breath {
+        }
+        #title-move {
+            margin: 0em 0em 0em 1em;
+        }
+        p {
+            color: white;
+            font-family: Tahoma, sans-serif;
+            font-size: 1.2em;
+            text-align: justify;
+            text-shadow: 2px 2px 4px black;
+        }
+        #content-summary {
+            margin: 1em 1em 1em 4em;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        #message-more {
+            font-size: 1em;
+        }
+    }
+}
