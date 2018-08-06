@@ -2,33 +2,27 @@ $color-dark-grey: #222222;
 $color-light-grey: #a9a9a9;
 $width-page: 1024px;
 $height-header: 100px;
-$height-menu-bar: 40px;
-$height-banner: 500px;
+$height-menu-bar: 2em;
+$height-banner: 400px;
 
 #app {
-    background: linear-gradient(darkblue, royalblue);
+    /*background: linear-gradient(darkblue, royalblue);*/
+    background-color: $color-dark-grey;
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
 }
 
 #site-page {
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
     width: 100%;
-    max-width: $width-page;
-    box-shadow: 0 0 20px 2px $color-dark-grey;
-}
-
-#top-bar {
-    height: 5px;
-    width: 100%;
-    background-color: blue;
 }
 
 #site-header {
     height: $height-header;
     width: 100%;
+    max-width: $width-page;
     background-color: $color-dark-grey;
     display: flex;
     flex-flow: row nowrap;
@@ -40,7 +34,7 @@ $height-banner: 500px;
 
 #menu-bar {
     height: $height-menu-bar;
-    width: 100%;
+    width: $width-page;
     background-color: $color-light-grey;
 
     a {
@@ -69,19 +63,19 @@ $height-banner: 500px;
 }
 
 #main-banner {
-    position: relative;
     width: inherit;
     height: $height-banner;
-
-    .banner-image {
-        position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    
+    .image-container {
+        position: relative;
         width: $width-page;
-    }
-    #banner-textbox {
-        position: absolute;
-        z-index: 1;
-        right: 0;
-        height: $height-banner;
+        background-size: cover;
+
+        > img {
+        }
     }
     #banner-message {
         display: flex;
@@ -95,7 +89,7 @@ $height-banner: 500px;
         width: 25em;
 
         #message-title {
-            margin: 50px 0 1em 0;
+            margin: 1em 0 0 0;
         }
         h1 {
             margin: 0em;
@@ -126,6 +120,125 @@ $height-banner: 500px;
         }
         #message-more {
             font-size: 1em;
+        }
+    }
+}
+
+#services-summary {
+    display: flex;
+    flex-flow: column nowrap;
+    /*background-color: #0079CB;*/
+    background-color: white;
+
+    h1 {
+        color: white;
+        margin: 1em 0 0 1em;
+        text-shadow: -1px 2px 5px black;
+    }
+    h2 {
+        color: white;
+        text-shadow: -1px 2px 5px black;
+    }
+    p {
+        color: white;
+        font-family: Tahoma;
+        font-size: 1em;
+        margin: 1em;
+        max-width: 60em;
+        align-self: center;
+    }
+    #item-container {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+    .summary-item {
+        padding: 0em 1em;
+    }
+}
+
+#section-divider-start {
+    height: 10px;
+    background: linear-gradient($color-dark-grey, white);
+}
+
+#section-divider-end {
+    height: 10px;
+    background: linear-gradient(black, #6BF178);
+}
+
+#action-items {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #6BF178;
+
+    .action-item {
+        padding: 1em 1em;
+        flex: 1 1 50%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+        }
+    }
+    #services-action {
+        h1 {
+        }
+        h2 {
+        }
+        a {
+        }
+    }
+    #discuss-action {
+        h1 {
+        }
+        .bio{
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+            }
+            a {
+            }
+        }
+    }
+}
+
+#site-footer {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: $color-dark-grey;
+
+    > div {
+        padding: 1em;
+        display: flex;
+        flex-flow: column nowrap;
+        width: 10em;
+        align-items: center;
+
+        > a {
+            text-decoration: none;
+            color: white;
+        }
+        > img {
+            width: 10em;
+        }
+    }
+    > ul {
+        list-style: none;
+        margin: 0;
+        padding: 1em;
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            color: $color-light-grey;
+        }
+        a {
+            color: $color-light-grey;
+            text-decoration: none;
         }
     }
 }
