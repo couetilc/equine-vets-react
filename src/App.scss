@@ -1,55 +1,107 @@
-$color-dark-grey: #222222;
-$color-light-grey: #a9a9a9;
-$width-page: 1024px;
-$height-header: 100px;
-$height-menu-bar: 2em;
-$height-banner: 400px;
+/* App Dimensions */
+$width-page: 64rem;
+$height-header: 6.25rem;
+$height-menubar: 2rem;
+$height-banner: 25rem;
+/* Color Palette */
+$color-bg-dark-grey: #2B2B2B;
+$color-bg-light-grey: #333333;
+$color-primary-green: #40AC46;
+$color-secondary-green: #EDF5EE;
+$color-primary-blue: #4790C1;
+/* Font Choices */
+@mixin mx-font-header {
+    font-style: normal;
+    font-variant: small-caps;
+    font-weight: 700; /* bold => 700 */
+    font-family: Verdana, sans-serif;
+}
+
+@mixin mx-font-banner-title {
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    font-family: Verdana, sans-serif;
+}
+
+@mixin mx-font-banner-content {
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    font-family: Tahoma, sans-serif;
+}
+
+@mixin mx-font-ui {
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400; /* normal => 400 */
+    font-family: Helvetica, system-ui, sans-serif;
+}
+
+@mixin mx-font-content {
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 300; /* light => 300 */
+    font-family: Helvetica, sans-serif;
+}
+
+/* Desktop Styles */
+html {
+    font-size: 1em;
+    background-color: $color-primary-green;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
 
 #app {
-    /*background: linear-gradient(darkblue, royalblue);*/
-    background-color: $color-dark-grey;
+    background: url("./assets/page-background.png");
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
+    justify-content: center;
 }
 
 #site-page {
+    width: 100%;
+    max-width: $width-page;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    width: 100%;
 }
 
-#site-header {
+header {
     height: $height-header;
     width: 100%;
-    max-width: $width-page;
-    background-color: $color-dark-grey;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    background-color: $color-bg-dark-grey;
 
-    .header-logo {
+    > img {
     }
 }
 
-#menu-bar {
-    height: $height-menu-bar;
-    width: $width-page;
-    background-color: $color-light-grey;
+.menu-bar {
+    height: $height-menubar;
+    width: 100%;
+    background-color: $color-bg-light-grey;
+    @include mx-font-ui;
 
-    a {
-        text-decoration: none;
-        color: white;
-        transition: border-bottom .2s;
-    }
-    a:hover {
-        border-bottom: 2px solid white;
-    }
     ul {
         height: inherit;
         width: inherit;
-        margin: 0em;
-        padding: 0em;
+        margin: 0;
+        padding: 0;
         list-style-type: none;
         display: flex;
         flex-flow: row nowrap;
@@ -57,77 +109,81 @@ $height-banner: 400px;
         align-items: center;
     }
     li {
-        padding: 0em;
-        margin: 0em 1em;
+        flex: 1 1 auto;
+        display: flex;
+        flex-flow: column nowrap;
+        padding: 0;
+        margin: 0;
+        height: inherit;
+    }
+    a {
+        text-align: center;
+        padding: .5em 0em;
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        color: white;
+        transition: all .2s;
+    }
+    a:hover {
+        box-sizing: border-box;
+        border-bottom: .125rem solid $color-primary-green;
+        color: $color-primary-green;
     }
 }
 
 #main-banner {
-    width: inherit;
+    width: 100%;
     height: $height-banner;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    
-    .image-container {
-        position: relative;
-        width: $width-page;
-        background-size: cover;
+    background-image: url("./assets/banner-racehorse.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    position: relative;
+}
 
-        > img {
-        }
-    }
-    #banner-message {
+#banner-message {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    position: absolute;
+    right: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 30rem;
+    color: white;
+
+    h1 {
         display: flex;
         flex-flow: column nowrap;
-        align-items: center;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 2;
-        width: 25em;
-
-        #message-title {
-            margin: 1em 0 0 0;
-        }
-        h1 {
-            margin: 0em;
-            padding: 0em;
-            color: white;
-            font-family: Verdana, sans-serif;
-            font-size: 3em;
-            text-shadow: 2px 2px 4px black;
-        }
-        #title-breath {
-        }
-        #title-move {
-            margin: 0em 0em 0em 1em;
-        }
-        p {
-            color: white;
-            font-family: Tahoma, sans-serif;
-            font-size: 1.2em;
-            text-align: justify;
-            text-shadow: 2px 2px 4px black;
-        }
-        #content-summary {
-            margin: 1em 1em 1em 4em;
-        }
-        a {
-            text-decoration: none;
-            color: white;
-        }
-        #message-more {
-            font-size: 1em;
-        }
+        align-items: flex-end;
+        margin: 0em;
+        padding: 0em;
+        @include mx-font-banner-title;
+        font-size: 3em;
+        text-shadow: 2px 2px 4px black;
+    }
+    #message-breath {
+    }
+    #message-move {
+    }
+    p {
+        @include mx-font-banner-content;
+        text-align: right;
+        font-size: 1.2rem;
+        text-shadow: 2px 2px 4px black;
+        width: 17em;
+    }
+    a {
+        text-decoration: none;
     }
 }
 
+/*
 #services-summary {
     display: flex;
     flex-flow: column nowrap;
-    /*background-color: #0079CB;*/
     background-color: white;
 
     h1 {
@@ -242,3 +298,4 @@ $height-banner: 400px;
         }
     }
 }
+*/
