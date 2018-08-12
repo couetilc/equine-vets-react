@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 import logoMain from './assets/main-logo-breath.png';
-import dividerHorse from './assets/divider-horse.png';
 import picLaurent from './assets/picture-laurent-green-ltr.png';
 import picKathleen from './assets/picture-kathleen-blue-rtl.png';
 
